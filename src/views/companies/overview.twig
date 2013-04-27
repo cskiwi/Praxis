@@ -1,0 +1,22 @@
+{# extend the parent tpl #}
+{% extends 'layout.twig' %}
+
+
+{# set the pagetitle in the parent tpl #}
+{% set pageTitle = 'My Blog &raquo; Blogposts' %}
+
+{% block pageContent %}
+	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; Companies</p>
+
+	<section class="companies">
+		{% if companies %}
+			{% for bedrijf in companies %}
+			<article>
+                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ bedrijf.idBedrijven }}" title="{{ bedrijf.Name }}">{{ bedrijf.Name }}</a> </h1>
+			</article>
+			{% endfor %}
+		{% else %}
+		<p>No companies to show!</p>
+		{% endif %}
+	</section>
+{% endblock %}
