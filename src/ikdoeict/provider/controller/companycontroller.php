@@ -5,7 +5,7 @@ namespace Ikdoeict\Provider\Controller;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 
-class BedrijvenController implements ControllerProviderInterface {
+class CompanyController implements ControllerProviderInterface {
 
 	public function connect(Application $app) {
 
@@ -28,7 +28,7 @@ class BedrijvenController implements ControllerProviderInterface {
         
         public function detail(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);
-                $stages = $app['stages']->findStages($companyID);
+                $stages = $app['internships']->findStages($companyID);
                 
 		if (!$companies) {
 			$app->abort(404, 'Author $id does not exist');
@@ -36,11 +36,11 @@ class BedrijvenController implements ControllerProviderInterface {
                 if (!$stages) {
 			$app->abort(404, 'Bedrijf $id does not exist');
 		}
-		return $app['twig']->render('companies/detail.twig', array('bedrijf' => $companies, 'stages' => $stages));
+		return $app['twig']->render('companies/detail.twig', array('company' => $companies, 'stages' => $stages));
 	}
         public function listStages(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);
-                $stages = $app['stages']->findStages($companyID);
+                $stages = $app['internships']->findStages($companyID);
                 
 		if (!$companies) {
 			$app->abort(404, 'Author $id does not exist');

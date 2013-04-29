@@ -10,9 +10,9 @@
 
 	<section class="companies">
 		{% if companies %}
-			{% for bedrijf in companies %}
+			{% for company in companies %}
 			<article>
-                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ bedrijf.idBedrijven }}" title="{{ bedrijf.Name }}">{{ bedrijf.Name }}</a> </h1>
+                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ company.idCompany }}" title="{{ company.Name }}">{{ company.Name }}</a> </h1>
 			</article>
 			{% endfor %}
 		{% else %}

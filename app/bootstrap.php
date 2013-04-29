@@ -26,7 +26,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 $app->register(new Knp\Provider\RepositoryServiceProvider(), array(
 	'repository.repositories' => array(
-		'companies' =>  'Ikdoeict\\Repository\\BedrijvenRepository',
-		'stages'    =>  'Ikdoeict\\Repository\\StageRepository'
+		'companies' =>  'Ikdoeict\\Repository\\CompanyRepository',
+		'internships'    =>  'Ikdoeict\\Repository\\InternshipRepository'
 	)
 ));

@@ -6,7 +6,7 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Silex\ControllerCollection;
 
-class StageController implements ControllerProviderInterface {
+class InternshipController implements ControllerProviderInterface {
 
             public function connect(Application $app) {
 
@@ -17,20 +17,20 @@ class StageController implements ControllerProviderInterface {
 		// Bind sub-routes
 		$controllers->get('/', array($this, 'overview'));
 		$controllers->get('/{id}', array($this, 'detail'))->assert('id', '\d+');
-                $controllers->get('/{id}/stages/addStage', array($this, 'addStage'))->assert('id', '\d+');
+                $controllers->get('/{id}/internships/addStage', array($this, 'addStage'))->assert('id', '\d+');
 
 		return $controllers;
 
 	}
 
 	public function overview(Application $app) {
-                $stages = $app['stages']->findAll();
+                $stages = $app['internships']->findAll();
 		return $app['twig']->render('stages/overview.twig', array('stages' => $stages));
 	}
 
 
 	public function detail(Application $app, $id) {
-		$stage = $app['stages']->find($id);
+		$stage = $app['internships']->find($id);
                 $companies = $app['companies']->find($stage['idBedrijven']);
 		return $app['twig']->render('stages/detail.twig', array('stage' => $stage, 'companies' => $companies));
 	}

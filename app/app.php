@@ -14,7 +14,7 @@ $app->error(function (\Exception $e, $code) {
 });
 
 // Mount our ControllerProviders
-$app->mount('/companies', new Ikdoeict\Provider\Controller\BedrijvenController());
-$app->mount('/stages', new Ikdoeict\Provider\Controller\StageController());
+$app->mount('/companies', new Ikdoeict\Provider\Controller\CompanyController());
+$app->mount('/internships', new Ikdoeict\Provider\Controller\InternshipController());
 $app->mount('/', new Ikdoeict\Provider\Controller\HomeController());
 
