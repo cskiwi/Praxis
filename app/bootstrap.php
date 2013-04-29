@@ -17,7 +17,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
         'driver' => 'pdo_mysql',
-        'host' => 'localhost:3307',
+        'host' => 'localhost',
         'dbname' => 'praxis',
         'user' => 'root',
         'password' => 'Azerty123'
@@ -26,7 +26,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 
 $app->register(new Knp\Provider\RepositoryServiceProvider(), array(
 	'repository.repositories' => array(
-		'companies' => 'Ikdoeict\\Repository\\BedrijvenRepository',
-		'stages' => 'Ikdoeict\\Repository\\StageRepository'
+		'companies' =>  'Ikdoeict\\Repository\\BedrijvenRepository',
+		'stages'    =>  'Ikdoeict\\Repository\\StageRepository'
 	)
 ));

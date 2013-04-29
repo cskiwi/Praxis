@@ -12,8 +12,8 @@
 		{% if stages %}
 			{% for stage in stages %}
 			<article>
-                            <h1> <a href="{{ app.request.baseUrl }}/stages/{{ stage.idStages }}" title="{{ stage.Title }}">{{ stage.Title }}</a> </h1>
-
+                            <h3> <a href="{{ app.request.baseUrl }}/stages/{{ stage.idStages }}" title="{{ stage.Title }}">{{ stage.Title }}</a> </h3>
+                            <span>sectors</span>
 				
 			</article>
 			{% endfor %}

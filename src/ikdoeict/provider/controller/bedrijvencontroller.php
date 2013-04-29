@@ -4,7 +4,6 @@ namespace Ikdoeict\Provider\Controller;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
-use Silex\ControllerCollection;
 
 class BedrijvenController implements ControllerProviderInterface {
 
@@ -56,6 +55,4 @@ class BedrijvenController implements ControllerProviderInterface {
 		}
 		return $app['twig']->render('stages/stagesCompany.twig', array( 'stages' => $stages, 'companies' => $companies));
 	}
-
-
 }
