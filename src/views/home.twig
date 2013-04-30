@@ -65,7 +65,7 @@
             <article class ="right">
                 <ul>
                     {% for sector in stage.sectors %}
-                        <li>{{sector.name}}</li>
+                        <li>{{sector.nameSector}}</li>
                     {% endfor %}
                 </ul>
                     <h4><a href="{{ app.request.baseUrl }}/internships/{{stage.idInternship}}">{{stage.Title}}</a></h4>

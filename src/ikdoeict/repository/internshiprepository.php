@@ -25,7 +25,7 @@ class InternshipRepository extends \Knp\Repository {
     }
 
     public function findSectorsOfTemplate($tempateID) {
-        return $this->db->fetchALl('select name from sector inner join internshiptemplate_has_sector on sector.idSector = internshiptemplate_has_sector.idSector where internshiptemplate_has_sector.idInternshipTemplate = ?;', array($tempateID));
+        return $this->db->fetchALl('select nameSector from sector inner join internshiptemplate_has_sector on sector.idSector = internshiptemplate_has_sector.idSector where internshiptemplate_has_sector.idInternshipTemplate = ?;', array($tempateID));
     }
 
 }
