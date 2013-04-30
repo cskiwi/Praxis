@@ -1,10 +1,6 @@
 *{
     font-weight: normal;
 }
-/* +-------------------+
- * |  Header           |
- * +-------------------+
- */
 
 html, body {
     height: 100%;
@@ -17,6 +13,11 @@ html, body {
     height: 1205px;
     margin: 0px auto;
 }
+
+/* +-------------------+
+ * |  Header           |
+ * +-------------------+
+ */
 
 header {
     width: 100%;
@@ -65,6 +66,14 @@ header nav ul li a{
 
 header nav ul li a:hover{
     text-decoration:underline;
+}
+
+#login {
+    position: relative;
+    width: 200px;
+    text-align: right;
+    left: 940px;
+    top: 20px;
 }
 
 
