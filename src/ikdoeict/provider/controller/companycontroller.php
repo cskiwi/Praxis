@@ -29,13 +29,12 @@ class CompanyController implements ControllerProviderInterface {
         public function detail(Application $app, $companyID) {
 		$companie = $app['companies']->find($companyID);
                 $facilities = $app['companies']->findCompanyFacileties($companyID);
-                $StagesinFacility = array();
+                $StagesMetFacility = array();
                 
                 foreach ($facilities as $value) {
                     $value['stages'] = $app['internships']->findStages($value['idFacility']);
-                    array_push($StagesinFacility, $value);
+                    array_push($StagesMetFacility, $value);
                 }
-            
                 
 		if (!$companie) {
 			$app->abort(404, 'Author $id does not exist');
@@ -43,7 +42,7 @@ class CompanyController implements ControllerProviderInterface {
                 if (!$facilities) {
 			$app->abort(404, 'Bedrijf $id does not exist');
 		}
-		return $app['twig']->render('companies/detail.twig', array('companie' => $companie, 'facilities' => $StagesinFacility));
+		return $app['twig']->render('companies/detail.twig', array('companie' => $companie, 'facilities' => $StagesMetFacility));
 	}
         public function listStages(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);

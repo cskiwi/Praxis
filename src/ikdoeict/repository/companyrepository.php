@@ -13,11 +13,11 @@ class CompanyRepository extends \Knp\Repository {
 	}
         
         public function findCompanyFacileties($companyID){
-            return $this->db->fetchAll('SELECT * FROM facileties WHERE CompaniesID = ?;', array($companyID));
+            return $this->db->fetchAll('SELECT * FROM facilities WHERE idCompany = ?;', array($companyID));
         }
         
         public function findFacilety($faciletyID) {
-            return $this->db->fetchAssoc('SELECT * FROM facileties where idFacilety = ?;', array($faciletyID));
+            return $this->db->fetchAssoc('SELECT * FROM facilities where idFacilety = ?;', array($faciletyID));
         }
 
 }

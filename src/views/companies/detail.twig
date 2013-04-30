@@ -13,13 +13,23 @@
                     <h1>{{companie.Name}}</h1>
 
                     <h2>Facilities</h2>
+                        <br/>
 
                         {% if facilities %}
                             {%for facility in facilities%}
                     <article id="soortenStages">
-                        <p>{{facility.Name}}</p>
-                        <p>{{facility.Street}}</p>
+                        <p>Name: {{facility.Name}}</p>
+                        <p>Street: {{facility.Street}}</p>
+                        <br/>
                         <h3>Stages</h3>
+                            {%for stage in facility.stages%}
+                        <h4>Description</h4>
+                        <p> {{stage.Description}}</p>
+                            {%endfor%}
+                        
+                        <br/>
+
+                        
                     </article>
                         {%endfor%}
                         {%else%}
