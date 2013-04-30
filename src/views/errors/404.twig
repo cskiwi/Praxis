@@ -3,8 +3,13 @@
 
 
 {# set the pagetitle in the parent tpl #}
-{% set pageTitle = '404 (File Not Found)' %}
+{% set pageTitle = 'Ohoh' %}
+
 
 {% block pageContent %}
-	<p><strong>404 (File Not Found)</strong><br />{{ error }}</p>
+<h2>404 - Darn it!</h2>
+<p>
+    <strong>This is not the page you're looking for!</strong>
+    <br />{{ error }}
+</p>
 {% endblock %}
