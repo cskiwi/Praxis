@@ -177,11 +177,9 @@ header nav ul li a:hover{
     top:10px;
 }
 
-
-
 p.breadcrumb{
-    margin-top: 25px;
     margin-bottom: 25px;
+    font-size: 10px;
 }
 
 h2#companiesTitle{
@@ -196,6 +194,8 @@ h2#companiesTitle{
 #articleCompany > h1 > a:hover{
     color: #000000;
 }
+
+
 /* +-------------------+
  * |  Footer           |
  * +-------------------+
