@@ -66,13 +66,11 @@ header nav ul li a:hover{
     text-decoration:underline;
 }
 
+
 /* +-------------------+
  * |  Content          |
  * +-------------------+
  */
-
-
-
 
 #content{
     margin-top: 25px;
@@ -179,6 +177,25 @@ header nav ul li a:hover{
     top:10px;
 }
 
+
+
+p.breadcrumb{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+h2#companiesTitle{
+    margin-bottom: 25px;
+}
+
+#articleCompany > h1 > a{
+    text-decoration: none;
+    color: #b7b7b7;
+}
+
+#articleCompany > h1 > a:hover{
+    color: #000000;
+}
 /* +-------------------+
  * |  Footer           |
  * +-------------------+
