@@ -3,17 +3,26 @@
 
 
 {# set the pagetitle in the parent tpl #}
-{% set pageTitle = 'My Blog &raquo; Blogposts &raquo; Detail' %}
+{% set pageTitle = 'Detail stage' %}
 
 {% block pageContent %}
-	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; <a href="{{app.request.baseUrl}}/companies/{{companies.idBedrijven}}"> {{companies.Name }} </a> &raquo; <a href="{{ app.request.baseUrl }}/companies/{{companies.idBedrijven}}/stages/">Stages</a> &raquo; {{ stage.Title }}</p>
+        <h2>Stage overview</h2>
 
+	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ stage.Title }}</p>
+        
 	<section class="stage">
                 <article>
                         <h1>{{ stage.Title }}</h1>
-                        <em>At<a href="{{app.request.baseUrl}}/companies/{{companies.idBedrijven}}"> {{companies.Name }} </a></em>
-                        <p>{{ stage.Beschrijving }}</p>
+                        
+                        <h2>Description</h2>
+                        <p>{{ stage.Description }}</p>
+                        
+                        <h2>Required knowledge</h2>
+                        <p>{{ stage.Required_Knowledge }}</p>
+                        
+                        <h2>time period</h2>
+                        <p>{{ stage.Start }} untill {{ stage.End }}</p>
                 </article>
 	</section>
-	<p><a href="{{ app.request.baseUrl }}/companies/{{companies.idBedrijven}}/stages">&larr; Back to stages overview</a></p>
+	<p><a href="{{ app.request.baseUrl }}/companies/stages">&larr; Back to stages overview</a></p>
 {% endblock %}

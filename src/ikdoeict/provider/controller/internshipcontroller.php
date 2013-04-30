@@ -31,8 +31,7 @@ class InternshipController implements ControllerProviderInterface {
 
 	public function detail(Application $app, $id) {
 		$stage = $app['internships']->find($id);
-                $companies = $app['companies']->find($stage['idBedrijven']);
-		return $app['twig']->render('stages/detail.twig', array('stage' => $stage, 'companies' => $companies));
+		return $app['twig']->render('stages/detail.twig', array('stage' => $stage));
 	}
         
         

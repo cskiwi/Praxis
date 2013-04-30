@@ -68,7 +68,7 @@
                         <li>{{sector.name}}</li>
                     {% endfor %}
                 </ul>
-                <h4>{{stage.Title}}</h4>
+                    <h4><a href="{{ app.request.baseUrl }}/internships/{{stage.idInternship}}">{{stage.Title}}</a></h4>
             </article>
 
             {% endfor %}
@@ -78,6 +78,4 @@
         </section>
     </section>
 </section>
-
-
 {% endblock %}
