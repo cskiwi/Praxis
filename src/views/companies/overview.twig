@@ -6,11 +6,10 @@
 {% set pageTitle = 'Company overview' %}
 
 {% block pageContent %}
-
-        <h2 class="title">Companies</h2>
-        
 	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; Companies</p>
         
+        <h2 class="title">Companies</h2>
+
 	<section class="companies">
 		{% if companies %}
 			{% for company in companies %}
