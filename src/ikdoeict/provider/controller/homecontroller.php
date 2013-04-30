@@ -10,7 +10,7 @@ class HomeController implements ControllerProviderInterface {
 
 	public function connect(Application $app) {
 		$controllers = $app['controllers_factory'];
-		$controllers->get('/', array($this, 'home'));
+		$controllers->get('/', array($this, 'home'))->bind('home');
 		return $controllers;
 	}
 
@@ -22,8 +22,8 @@ class HomeController implements ControllerProviderInterface {
                     $value['sectors'] = $app['internships']->findSectorsOfTemplate($value['idInternshipTemplate']);
                     array_push($StagesAndSectors, $value);
                 }
-                
-		return $app['twig']->render('home.twig', array('stages' => $StagesAndSectors));
+               
+		return $app['twig']->render('home.twig', array('stages' => $StagesAndSectors, 'logininfo' => $app['session']->get('company')));
 	}
 
 }

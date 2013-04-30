@@ -15,7 +15,7 @@ class InternshipController implements ControllerProviderInterface {
 		$controllers = $app['controllers_factory'];
 
 		// Bind sub-routes
-		$controllers->get('/', array($this, 'overview'));
+		$controllers->get('/', array($this, 'overview'))->bind('Internship');
 		$controllers->get('/{id}', array($this, 'detail'))->assert('id', '\d+');
                 $controllers->get('/{id}/internships/addStage', array($this, 'addStage'))->assert('id', '\d+');
 
@@ -25,20 +25,12 @@ class InternshipController implements ControllerProviderInterface {
 
 	public function overview(Application $app) {
                 $internships = $app['internships']->findAll();
-		return $app['twig']->render('stages/overview.twig', array('internships' => $internships));
+		return $app['twig']->render('stages/overview.twig', array('internships' => $internships, 'logininfo' => $app['session']->get('company')));
 	}
 
 
 	public function detail(Application $app, $id) {
 		$internship = $app['internships']->find($id);
-		return $app['twig']->render('stages/detail.twig', array('internship' => $internship));
+    		return $app['twig']->render('stages/detail.twig', array('internship' => $internship, 'logininfo' => $app['session']->get('company')));
 	}
-        
-        
-        /*public function addStage(Application $app, $id) {
-		$stage = $app['stages']->findAll();
-                $companies = $app['companies']->find($stage['idBedrijven']);
-		return $app['twig']->render('stages/addStage.twig', array('stage' => $stage, 'companies' => $companies));
-	}*/
-
 }

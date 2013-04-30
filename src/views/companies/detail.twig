@@ -6,7 +6,7 @@
 {% set pageTitle = 'My Blog &raquo; Blogposts &raquo; Detail' %}
 
 {% block pageContent %}
-	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ companie.Name }}</p>
+	<p class="breadcrumb"><a href="{{path('home')}}/">Praxis</a> &raquo; <a href="{{ path('Company') }}">Companies</a> &raquo; {{ companie.Name }}</p>
         
         <section class="stage">
                 <article>

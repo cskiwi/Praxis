@@ -12,7 +12,9 @@ $app->error(function (\Exception $e, $code) use ($app) {
 });
 
 // Mount our ControllerProviders
+$app->mount('/', new Ikdoeict\Provider\Controller\HomeController());
 $app->mount('/companies', new Ikdoeict\Provider\Controller\CompanyController());
 $app->mount('/internships', new Ikdoeict\Provider\Controller\InternshipController());
-$app->mount('/', new Ikdoeict\Provider\Controller\HomeController());
+$app->mount('/admin', new Ikdoeict\Provider\Controller\AdminController());
+
 

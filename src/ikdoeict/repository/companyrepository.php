@@ -19,5 +19,9 @@ class CompanyRepository extends \Knp\Repository {
         public function findFacilety($faciletyID) {
             return $this->db->fetchAssoc('SELECT * FROM facilities where idFacilety = ?;', array($faciletyID));
         }
+        
+        public function findLogin($email, $password) {
+		return $this->db->fetchAssoc('SELECT Login, Pass FROM Companies WHERE Login = ? AND Pass = ?', array($email, $password));
+	}
 
 }

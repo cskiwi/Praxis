@@ -14,7 +14,7 @@ class CompanyController implements ControllerProviderInterface {
 		$controllers = $app['controllers_factory'];
 
 		// Bind sub-routes
-		$controllers->get('/', array($this, 'overview'));
+		$controllers->get('/', array($this, 'overview'))->bind('Company');
                 $controllers->get('/{companyID}', array($this, 'detail'))->assert('$companyID', '\d+');
                 $controllers->get('/{companyID}/internships', array($this, 'listStages'))->assert('$companyID', '\d+');
 		return $controllers;
@@ -23,7 +23,7 @@ class CompanyController implements ControllerProviderInterface {
 
 	public function overview(Application $app) {
 		$companies = $app['companies']->findAll();
-		return $app['twig']->render('companies/overview.twig', array('companies' => $companies));
+		return $app['twig']->render('companies/overview.twig', array('companies' => $companies, 'logininfo' => $app['session']->get('company')));
 	}
         
         public function detail(Application $app, $companyID) {
@@ -42,7 +42,7 @@ class CompanyController implements ControllerProviderInterface {
                 if (!$facilities) {
 			$app->abort(404, 'Bedrijf $id does not exist');
 		}
-		return $app['twig']->render('companies/detail.twig', array('companie' => $companie, 'facilities' => $StagesMetFacility));
+		return $app['twig']->render('companies/detail.twig', array('companie' => $companie, 'facilities' => $StagesMetFacility, 'logininfo' => $app['session']->get('company')));
 	}
         public function listStages(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);
@@ -59,6 +59,6 @@ class CompanyController implements ControllerProviderInterface {
                 if (!$stages) {
 			$app->abort(404, 'Bedrijf $id does not exist');
 		}
-		return $app['twig']->render('stages/stagesCompany.twig', array( 'stages' => $stages, 'companies' => $companies));
+		return $app['twig']->render('stages/stagesCompany.twig', array( 'stages' => $stages, 'companies' => $companies, 'logininfo' => $app['session']->get('company')));
 	}
 }

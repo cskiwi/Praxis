@@ -22,14 +22,24 @@
 
         <section id="siteWrapper">
             <header>
-                <a href="{{ app.request.baseUrl }}"><h1>Praxis</h1></a>
+                <a href="{{ path('home') }}"><h1>Praxis</h1></a>
                 <section id="login">
-                    
-                    <input type="text" name="firstname" placeholder="username"><br>
-                    <input type="password" name="lastname" placeholder="password">
-                    <p><a href="#">Login</a> or <a href="#">Register</a></p>
+
+                    {%if logininfo %}
+                    <p>
+                        Welcome {{logininfo.login}} <br />
+                        <a href="{{path('auth.logout')}}">logout</a>
+                    </p>
+                    {%else%}
+                    <p>
+                        Welcom guest <br />
+                                                <a href="{{path('auth.login')}}">Login</a>
+
+                    </p>
+                    {%endif%}
                 </section>
-                
+
+
                 <nav>
                     <ul>
                         <li><a href="{{ app.request.baseUrl }}">Home</a></li>
@@ -41,7 +51,7 @@
             </header>
 
             <!-- content -->
-                <section>
+            <section>
                 {% block pageContent %}
                     Placeholder for content 
                 {% endblock %}
