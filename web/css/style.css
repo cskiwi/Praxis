@@ -182,18 +182,23 @@ p.breadcrumb{
     font-size: 10px;
 }
 
-h2#companiesTitle{
+h2.title{
+    margin-top: 25px;
     margin-bottom: 25px;
+    font-size: 30px;
 }
 
 #articleCompany > h1 > a{
     text-decoration: none;
-    color: #b7b7b7;
+    color: #000000;
+    font-size: 15px;
 }
 
 #articleCompany > h1 > a:hover{
-    color: #000000;
+    color: #b7b7b7;
 }
+
+
 
 
 /* +-------------------+
