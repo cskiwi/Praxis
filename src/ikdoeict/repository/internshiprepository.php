@@ -9,11 +9,11 @@ class InternshipRepository extends \Knp\Repository {
     }
     
     public function findAll(){
-        return $this->db->fetchAll('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID inner join facileties on internshiptemplate.Facileties_ID = facileties.ID inner join companies on facileties.CompaniesID = companies.idCompany;');   
+        return $this->db->fetchAll('select * from internship inner join internshipTemplate on internship.idInternshipTemplate = internshipTemplate.idIntershipTemplate inner join facilities on internshiptemplate.idFacility = facilities.idFacility inner join companies on facilities.idCompany = companies.idCompany;');   
     }
 
     public function find($id) {
-        return $this->db->fetchAssoc('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID inner join facileties on internshiptemplate.Facileties_ID = facileties.ID inner join companies on facileties.CompaniesID = companies.idCompany WHERE internship.idInternship = ?;', array($id));
+        return $this->db->fetchAssoc('select * from internship inner join internshiptemplate on internship.idInternshipTemplate = internshipTemplate.idIntershipTemplate inner join facilities on internshiptemplate.idFacility = facilities.idFacility inner join companies on facilities.idCompany = companies.idCompany WHERE internship.idInternship = ?;', array($id));
     }
 
     public function findStages($facilityID) {
@@ -21,11 +21,11 @@ class InternshipRepository extends \Knp\Repository {
     }
 
     public function findStagesFrontPage() {
-        return $this->db->fetchAll('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID LIMIT 8;');
+        return $this->db->fetchAll('select * from internship inner join internshipTemplate on internship.idInternshipTemplate = internshipTemplate.idIntershipTemplate LIMIT 8;');
     }
 
     public function findSectorsOfTemplate($tempateID) {
-        return $this->db->fetchALl('select name from sector inner join internshiptemplate_has_sector on sector.idSector = internshiptemplate_has_sector.Sector_idSector where internshiptemplate_has_sector.InternshipTemplate_ID = ?;', array($tempateID));
+        return $this->db->fetchALl('select name from sector inner join internshiptemplate_has_sector on sector.idSector = internshiptemplate_has_sector.idSector where internshiptemplate_has_sector.idInternshipTemplate = ?;', array($tempateID));
     }
 
 }

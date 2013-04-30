@@ -12,7 +12,7 @@
 		{% if internships %}
 			{% for internship in internships %}
 			<article>
-                            <h3> <a href="{{ app.request.baseUrl }}/stages/{{ internship.idStages }}" title="{{ stage.Title }}">{{ stage.Title }}</a> </h3>
+                            <h3> <a href="{{ app.request.baseUrl }}/internships/{{ internship.idInternship }}" title="{{ internship.Title }}">{{ internship.Title }}</a> </h3>
                             <span>sectors</span>
 				
 			</article>

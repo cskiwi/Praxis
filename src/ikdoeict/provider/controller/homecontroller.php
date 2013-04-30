@@ -19,7 +19,7 @@ class HomeController implements ControllerProviderInterface {
                 $StagesAndSectors = array();
                 
                 foreach ($stages as $value) {
-                    $value['sectors'] = $app['internships']->findSectorsOfTemplate($value['InternshipTemplate_ID']);
+                    $value['sectors'] = $app['internships']->findSectorsOfTemplate($value['idInternshipTemplate']);
                     array_push($StagesAndSectors, $value);
                 }
                 

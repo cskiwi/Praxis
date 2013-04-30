@@ -8,21 +8,21 @@
 {% block pageContent %}
         <h2 class="title">Stage overview</h2>
 
-	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ stage.Title }}</p>
+	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ internship.Title }}</p>
         
 	<section class="stage">
                 <article>
-                        <h1>{{ stage.Title }}</h1>
+                        <h1>{{ internship.Title }}</h1>
                         
                         <h2>Description</h2>
-                        <p>{{ stage.Description }}</p>
+                        <p>{{ internship.Description }}</p>
                         
                         <h2>Required knowledge</h2>
-                        <p>{{ stage.Required_Knowledge }}</p>
+                        <p>{{ internship.Required_Knowledge }}</p>
                         
                         <h2>time period</h2>
-                        <p>{{ stage.Start }} untill {{ stage.End }}</p>
+                        <p>{{ internship.Start }} untill {{ internship.End }}</p>
                 </article>
 	</section>
-	<p id="return"><a href="{{ app.request.baseUrl }}/companies/stages">&larr; Back to stages overview</a></p>
+	<p id="return"><a href="{{ app.request.baseUrl }}/internships">&larr; Back to stages overview</a></p>
 {% endblock %}
