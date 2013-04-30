@@ -6,23 +6,23 @@
 {% set pageTitle = 'Detail stage' %}
 
 {% block pageContent %}
-        <h2 class="title">Stage overview</h2>
+<h2 class="title">Stage overview</h2>
 
-        <p class="breadcrumb"><a href="{{ path('home') }}/">Praxis</a> &raquo; <a href="{{ path('Company')}}">Companies</a>  &raquo; ID &raquo; {{ internship.Title }}</p>
-        
-	<section class="stage">
-                <article>
-                        <h1>{{ internship.Title }}</h1>
-                        
-                        <h2>Description</h2>
-                        <p>{{ internship.Description }}</p>
-                        
-                        <h2>Required knowledge</h2>
-                        <p>{{ internship.Required_Knowledge }}</p>
-                        
-                        <h2>time period</h2>
-                        <p>{{ internship.Start }} untill {{ internship.End }}</p>
-                </article>
-	</section>
-	<p id="return"><a href="{{ path('Internship') }}">&larr; Back to stages overview</a></p>
+<p class="breadcrumb"><a href="{{ path('home') }}/">Praxis</a> &raquo; <a href="{{ path('Company')}}">Companies</a> &raquo; <a href="{{ path('Company')}}{{internship.idCompany}}">{{internship.NameCompany }} </a>&raquo; {{internship.NameFacility }} &raquo; {{ internship.Title }}</p>
+
+<section class="stage">
+    <article>
+        <h1>{{ internship.Title }}</h1>
+
+        <h2>Description</h2>
+        <p>{{ internship.Description }}</p>
+
+        <h2>Required knowledge</h2>
+        <p>{{ internship.Required_Knowledge }}</p>
+
+        <h2>time period</h2>
+        <p>{{ internship.Start }} untill {{ internship.End }}</p>
+    </article>
+</section>
+<p id="return"><a href="{{ path('Internship') }}">&larr; Back to stages overview</a></p>
 {% endblock %}

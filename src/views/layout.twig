@@ -28,12 +28,12 @@
                     {%if logininfo %}
                     <p>
                         Welcome {{logininfo.login}} <br />
-                        <a href="{{path('auth.logout')}}">logout</a>
+                        <a href="{{path('admin.logout')}}">logout</a>
                     </p>
                     {%else%}
                     <p>
                         Welcom guest <br />
-                                                <a href="{{path('auth.login')}}">Login</a>
+                        <a href="{{path('admin.login')}}">Login</a>
 
                     </p>
                     {%endif%}
@@ -42,9 +42,9 @@
 
                 <nav>
                     <ul>
-                        <li><a href="{{ app.request.baseUrl }}">Home</a></li>
-                        <li><a href="{{ app.request.baseUrl }}/internships">Stages</a></li>
-                        <li><a href="{{ app.request.baseUrl }}/companies">Companies</a></li>                        
+                        <li><a href="{{ path('home') }}">Home</a></li>
+                        <li><a href="{{ path('Internship') }}">Intersnhips</a></li>
+                        <li><a href="{{ path('Company') }}">Companies</a></li>                        
                     </ul>
                 </nav>
 
@@ -60,7 +60,7 @@
 
                 <footer>
                     <ul id="footerLeft">
-                        <li><a href="#">Login</a></li>
+                        <li><a href="{{path('admin.login')}}">Login</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>

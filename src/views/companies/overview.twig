@@ -6,7 +6,7 @@
 {% set pageTitle = 'Company overview' %}
 
 {% block pageContent %}
-	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; Companies</p>
+	<p class="breadcrumb"><a href="{{ path('home') }}">Praxis</a> &raquo; Companies</p>
         
         <h2 class="title">Companies</h2>
 
@@ -14,7 +14,7 @@
 		{% if companies %}
 			{% for company in companies %}
 			<article id="articleCompany">
-                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ company.idCompany }}" title="{{ company.Name }}">{{ company.Name }}</a> </h1>
+                            <h1> <a href="{{path('Company') }}{{ company.idCompany }}" title="{{ company.NameCompany }}">{{ company.NameCompany }}</a> </h1>
 			</article>
 			{% endfor %}
 		{% else %}

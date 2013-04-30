@@ -1,0 +1,75 @@
+{# extend the parent tpl #}
+{% extends 'layout.twig' %}
+
+
+{# set the pagetitle in the parent tpl #}
+{% set pageTitle = 'Add facility' %}
+
+
+{# overwrite the pageContent block #}
+{% block pageContent %}
+	<p class="breadcrumb"><a href="#">login</p>
+	
+	<form action="{{ path('admin.addFacility') }}" method="post" {{ form_enctype(addFacility) }} novalidate="novalidate">{# disable HTML5 formchecking #}
+		<dl class="clearfix">
+			<dt>
+				{{ form_label(addFacility.Name) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.Name) }}
+				{{ form_errors(addFacility.Name) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addFacility.Street) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.Street) }}
+				{{ form_errors(addFacility.Street) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addFacility.HouseNr) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.HouseNr) }}
+				{{ form_errors(addFacility.HouseNr) }}
+			</dd>
+                        <dt>
+				{{ form_label(addFacility.City) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.City) }}
+				{{ form_errors(addFacility.City) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addFacility.Country) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.Country) }}
+				{{ form_errors(addFacility.Country) }}
+			</dd>
+                        <dt>
+				{{ form_label(addFacility.Phone) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.Phone) }}
+				{{ form_errors(addFacility.Phone) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addFacility.Fax) }}
+			</dt>
+			<dd>
+				{{ form_widget(addFacility.Fax) }}
+				{{ form_errors(addFacility.Fax) }}
+			</dd>
+			
+			<dd>
+				{{ form_widget(addFacility._token) }}
+				<input type="submit" name="add Stage" value="Add Stage" />
+			</dd>
+		</dl>
+	</form>
+{% endblock %}

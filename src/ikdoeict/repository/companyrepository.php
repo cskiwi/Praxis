@@ -23,5 +23,9 @@ class CompanyRepository extends \Knp\Repository {
         public function findLogin($email, $password) {
 		return $this->db->fetchAssoc('SELECT Login, Pass FROM Companies WHERE Login = ? AND Pass = ?', array($email, $password));
 	}
+        
+        public function addFacilit($data){
+            
+        }
 
 }

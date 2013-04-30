@@ -1,0 +1,75 @@
+{# extend the parent tpl #}
+{% extends 'layout.twig' %}
+
+
+{# set the pagetitle in the parent tpl #}
+{% set pageTitle = 'AddStage' %}
+
+
+{# overwrite the pageContent block #}
+{% block pageContent %}
+	<p class="breadcrumb"><a href="#">login</p>
+	
+	<form action="{{ path('admin.addStage') }}" method="post" {{ form_enctype(addStage) }} novalidate="novalidate">{# disable HTML5 formchecking #}
+		<dl class="clearfix">
+			<dt>
+				{{ form_label(addStage.Title) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.Title) }}
+				{{ form_errors(addStage.Title) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addStage.Location) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.Location) }}
+				{{ form_errors(addStage.Location) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addStage.StartDate) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.StartDate) }}
+				{{ form_errors(addStage.StartDate) }}
+			</dd>
+                        <dt>
+				{{ form_label(addStage.EndDate) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.EndDate) }}
+				{{ form_errors(addStage.EndDate) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addStage.RequiredKnowledge) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.RequiredKnowledge) }}
+				{{ form_errors(addStage.RequiredKnowledge) }}
+			</dd>
+                        <dt>
+				{{ form_label(addStage.Description) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.Description) }}
+				{{ form_errors(addStage.Description) }}
+			</dd>
+                        
+                        <dt>
+				{{ form_label(addStage.Sector) }}
+			</dt>
+			<dd>
+				{{ form_widget(addStage.Sector) }}
+				{{ form_errors(addStage.Sector) }}
+			</dd>
+			
+			<dd>
+				{{ form_widget(addStage._token) }}
+				<input type="submit" name="add Stage" value="Add Stage" />
+			</dd>
+		</dl>
+	</form>
+{% endblock %}

@@ -3,39 +3,67 @@
 
 
 {# set the pagetitle in the parent tpl #}
-{% set pageTitle = 'My Blog &raquo; Blogposts &raquo; Detail' %}
+{% set pageTitle = 'Compay detail' %}
 
 {% block pageContent %}
-	<p class="breadcrumb"><a href="{{path('home')}}/">Praxis</a> &raquo; <a href="{{ path('Company') }}">Companies</a> &raquo; {{ companie.Name }}</p>
-        
-        <section class="stage">
-                <article>
-                    <h1>{{companie.Name}}</h1>
+<p class="breadcrumb"><a href="{{path('home')}}/">Praxis</a> &raquo; <a href="{{ path('Company') }}">Companies</a> &raquo; {{ companie.NameCompany }}</p>
 
-                    <h2>Facilities</h2>
-                        <br/>
+<section class="stage">
+    <article>
+        <h1>{{companie.NameCompany}}</h1>
+
+        <h2>Facilities</h2>
+        <br/>
 
                         {% if facilities %}
                             {%for facility in facilities%}
-                    <article id="soortenStages">
-                        <p>Name: {{facility.Name}}</p>
-                        <p>Street: {{facility.Street}}</p>
-                        <br/>
-                        <h3>Stages</h3>
-                            {%for stage in facility.stages%}
-                        <h4>Description</h4>
-                        <p> {{stage.Description}}</p>
-                            {%endfor%}
-                        
-                        <br/>
+        <article id="soortenStages">
+            <h3>{{facility.NameFacility}}</h3>
+            {%if logininfo %}
+                {%if logininfo.login == companie.Login %}
+                    <form name="submitForm" method="POST" action="{{path('admin.addFacility')}}">
+                        <input type="hidden" name="CompanyLogin" value="{{companie.Login}}">
 
-                        
-                    </article>
+                        <input type="submit" name="submit" value="Add facility" />
+                    </form>
+                {%endif%}
+            {%endif%}
+            <p>{{facility.Street}} {{facility.idFacility}}<br/>
+                            {{facility.City}} in {{facility.Coutry}}<br/>                            
+                    Tel: {{facility.Phone}}<br/>
+                    Fax: {{facility.Fax}}
+                </p>
+
+
+                <br/>
+                <h4>Stages</h4>
+                            {%for stage in facility.stages%}
+                <p>
+                    <a href="{{path('Internship')}}{{stage.idInternship}}">{{stage.Title}}</a>
+                </p>
+                <p> 
+                            {{stage.Description}}
+                    </p>
+                            {%endfor%}
+                    {%if logininfo %}
+                    {%if logininfo.login == companie.Login %}
+
+                    <form name="submitForm" method="POST" action="{{path('admin.addStage')}}">
+                        <input type="hidden" name="CompanyLogin" value="{{companie.Login}}">
+
+                        <input type="submit" name="submit" value="Add stage" />
+                    </form>
+                   {%endif %}
+                   {%endif %}
+
+                    <br/>
+
+                </article>
                         {%endfor%}
                         {%else%}
-                    <p>No facilities found</p>
+                <p>No facilities found</p>
                         {%endif%}
-                </article>
-	</section>
-	
+            </article>
+        </section>
+
 {% endblock %}
