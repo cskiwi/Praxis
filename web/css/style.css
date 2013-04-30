@@ -198,7 +198,13 @@ h2.title{
     color: #b7b7b7;
 }
 
+.stage > article > h1{
+    font-size: 20px;
+}
 
+.stage > article > h2{
+    font-size: 20px;
+}
 
 
 /* +-------------------+
