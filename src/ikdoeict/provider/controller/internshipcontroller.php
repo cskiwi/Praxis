@@ -24,8 +24,8 @@ class InternshipController implements ControllerProviderInterface {
 	}
 
 	public function overview(Application $app) {
-                $stages = $app['internships']->findAll();
-		return $app['twig']->render('stages/overview.twig', array('stages' => $stages));
+                $internships = $app['internships']->findAll();
+		return $app['twig']->render('stages/overview.twig', array('internships' => $internships));
 	}
 
 

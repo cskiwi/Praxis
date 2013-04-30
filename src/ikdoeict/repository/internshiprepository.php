@@ -16,8 +16,8 @@ class InternshipRepository extends \Knp\Repository {
         return $this->db->fetchAssoc('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID inner join facileties on internshiptemplate.Facileties_ID = facileties.ID inner join companies on facileties.CompaniesID = companies.idCompany WHERE internship.idInternship = ?;', array($id));
     }
 
-    public function findStages($CompanyID) {
-        return $this->db->fetchAll('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID where Facileties_ID = ?;', array($CompanyID));
+    public function findStages($facilityID) {
+        return $this->db->fetchAll('select * from internship inner join internshipTemplate on internship.idInternshipTemplate = internshipTemplate.idIntershipTemplate inner join facilities on facilities.idfacility = internshipTemplate.idfacility where internshipTemplate.idfacility = ?;', array($CompanyID));
     }
 
     public function findStagesFrontPage() {

@@ -16,7 +16,7 @@ class CompanyController implements ControllerProviderInterface {
 		// Bind sub-routes
 		$controllers->get('/', array($this, 'overview'));
                 $controllers->get('/{companyID}', array($this, 'detail'))->assert('$companyID', '\d+');
-                $controllers->get('/{companyID}/stages/', array($this, 'listStages'))->assert('$companyID', '\d+');
+                $controllers->get('/{companyID}/internships', array($this, 'listStages'))->assert('$companyID', '\d+');
 		return $controllers;
 
 	}
@@ -38,6 +38,7 @@ class CompanyController implements ControllerProviderInterface {
 		}
 		return $app['twig']->render('companies/detail.twig', array('company' => $companies, 'stages' => $stages));
 	}
+       
         public function listStages(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);
                 $stages = $app['internships']->findStages($companyID);
