@@ -15,7 +15,15 @@ class HomeController implements ControllerProviderInterface {
 	}
 
 	public function home(Application $app) {
-		return $app['twig']->render('home.twig');
+                $stages = $app['internships']->findStagesFrontPage();
+                $StagesAndSectors = array();
+                
+                foreach ($stages as $value) {
+                    $value['sectors'] = $app['internships']->findSectorsOfTemplate($value['InternshipTemplate_ID']);
+                    array_push($StagesAndSectors, $value);
+                }
+                
+		return $app['twig']->render('home.twig', array('stages' => $StagesAndSectors));
 	}
 
 }

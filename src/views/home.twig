@@ -1,4 +1,4 @@
-{# extend the parent tpl #}
+    {# extend the parent tpl #}
 {% extends 'layout.twig' %}
 
 
@@ -8,126 +8,76 @@
 {% block pageContent %}
 <section id="content">
 
-            <section id="banner">
+    <section id="banner">
 
-                <img src="Images/lotusBakeries.jpg" alt="lotus"/>
-                <section id="bannerInfo">
-                    <h3>Company</h3>
+        <img src="Images/lotusBakeries.jpg" alt="lotus"/>
+        <section id="bannerInfo">
+            <h3>Company</h3>
+            <ul>
+                <li>Location
                     <ul>
-                        <li>Location
-                            <ul>
-                                <li><a href="#">Location 1</a></li>
-                            </ul>
-                        </li>
-
-                        <li>Interschips
-                            <ul>
-                                <li><a href="#">X remaining</a></li>
-                            </ul>
-                        </li>
-
-                        <li>Sectors
-                            <ul>
-                                <li><a href="#">Sector 1</a></li>
-                                <li><a href="#">Sector 2</a></li>
-                                <li><a href="#">Sector 3</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#">Location 1</a></li>
                     </ul>
-                </section>
+                </li>
+
+                <li>Interschips
+                    <ul>
+                        <li><a href="#">X remaining</a></li>
+                    </ul>
+                </li>
+
+                <li>Sectors
+                    <ul>
+                        <li><a href="#">Sector 1</a></li>
+                        <li><a href="#">Sector 2</a></li>
+                        <li><a href="#">Sector 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <section id="contentBottom">
+        <section id="contentBottomLeft">
+            <section class="left">
+                <h3>Stages</h3>
+                <ul>
+                    <li><a href="#">Sector 1</a></li>
+                    <li><a href="#">Sector 2</a></li>
+                    <li><a href="#">Sector 3</a></li>
+                </ul>
             </section>
 
-            <section id="contentBottom">
-                <section id="contentBottomLeft">
-                    <section class="left">
-                        <h3>Stages</h3>
-                        <ul>
-                            <li><a href="#">Sector 1</a></li>
-                            <li><a href="#">Sector 2</a></li>
-                            <li><a href="#">Sector 3</a></li>
-                        </ul>
-                    </section>
-
-                    <section class="left">
-                        <h3>Locations</h3>
-                        <ul>
-                            <li><a href="#">Sector 1</a></li>
-                            <li><a href="#">Sector 2</a></li>
-                            <li><a href="#">Sector 3</a></li>
-                        </ul>
-                    </section>
-                </section>
-
-                <section id="contentBottomRight">
-                    <h3>Stages in spotlight</h3>
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>
-
-                    <article class ="right">
-                        <ul>
-                            <li>ICT</li>
-                            <li>Onderhoud</li>
-                        </ul>
-                        <h4>Netwerk Enginering</h4>
-                    </article>        
-                </section>
-
-
+            <section class="left">
+                <h3>Locations</h3>
+                <ul>
+                    <li><a href="#">Sector 1</a></li>
+                    <li><a href="#">Sector 2</a></li>
+                    <li><a href="#">Sector 3</a></li>
+                </ul>
             </section>
         </section>
+
+        <section id="contentBottomRight">
+            <h3>Stages in spotlight</h3>
+            {% if stages %}
+            {% for stage in stages %}
+            <article class ="right">
+                <ul>
+                    {% for sector in stage.sectors %}
+                        <li>{{sector.name}}</li>
+                    {% endfor %}
+                </ul>
+                <h4>{{stage.Title}}</h4>
+            </article>
+
+            {% endfor %}
+            {% else %}
+            <p>No stages to show!</p>
+            {% endif %}
+        </section>
+    </section>
+</section>
 
 
 {% endblock %}
