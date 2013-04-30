@@ -15,7 +15,7 @@
 		{% if companies %}
 			{% for company in companies %}
 			<article id="articleCompany">
-                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ company.idBedrijven }}" title="{{ company.Name }}">{{ company.Name }}</a> </h1>
+                            <h1> <a href="{{ app.request.baseUrl }}/companies/{{ company.idCompany }}" title="{{ company.Name }}">{{ company.Name }}</a> </h1>
 			</article>
 			{% endfor %}
 		{% else %}
