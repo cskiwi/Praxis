@@ -183,8 +183,8 @@ p.breadcrumb{
 }
 
 h2.title{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 3px;
     font-size: 30px;
 }
 
@@ -198,14 +198,24 @@ h2.title{
     color: #b7b7b7;
 }
 
+
+
 .stage > article > h1{
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .stage > article > h2{
-    font-size: 20px;
+    font-size: 18px;
+    margin-top: 15px;
 }
 
+.stage > article > p {
+    font-size: 15px;
+}
+
+#return {
+    margin-top: 25px;
+}
 
 /* +-------------------+
  * |  Footer           |
