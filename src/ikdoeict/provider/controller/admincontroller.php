@@ -114,7 +114,8 @@ class AdminController implements ControllerProviderInterface {
 
             if ($addStage->isValid()) {
                 $data = $addStage->getData();
-                print_r($data);
+                array_push($data, $app['session']->get('company')['login']);
+                $app['companies']->addFacility($data);
             }
         }
         return $app['twig']->render('Admin/addFacility.twig', array('addFacility' => $addStage->createView(), 'logininfo' => $app['session']->get('company')));
