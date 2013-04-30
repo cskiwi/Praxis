@@ -27,18 +27,24 @@ class CompanyController implements ControllerProviderInterface {
 	}
         
         public function detail(Application $app, $companyID) {
-		$companies = $app['companies']->find($companyID);
-                $stages = $app['internships']->findStages($companyID);
+		$companie = $app['companies']->find($companyID);
+                $facilities = $app['companies']->findCompanyFacileties($companyID);
+                $StagesinFacility = array();
                 
-		if (!$companies) {
+                foreach ($facilities as $value) {
+                    $value['stages'] = $app['internships']->findStages($value['idFacility']);
+                    array_push($StagesinFacility, $value);
+                }
+            
+                
+		if (!$companie) {
 			$app->abort(404, 'Author $id does not exist');
 		}
-                if (!$stages) {
+                if (!$facilities) {
 			$app->abort(404, 'Bedrijf $id does not exist');
 		}
-		return $app['twig']->render('companies/detail.twig', array('company' => $companies, 'stages' => $stages));
+		return $app['twig']->render('companies/detail.twig', array('companie' => $companie, 'facilities' => $StagesinFacility));
 	}
-       
         public function listStages(Application $app, $companyID) {
 		$companies = $app['companies']->find($companyID);
                 $stages = $app['internships']->findStages($companyID);

@@ -6,28 +6,26 @@
 {% set pageTitle = 'My Blog &raquo; Blogposts &raquo; Detail' %}
 
 {% block pageContent %}
-	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ bedrijf.Name }}</p>
-
-	<section class="bedrijf">
+	<p class="breadcrumb"><a href="{{ app.request.baseUrl }}/">Praxis</a> &raquo; <a href="{{ app.request.baseUrl }}/companies">Companies</a> &raquo; {{ companie.Name }}</p>
+        
+        <section class="stage">
                 <article>
-                        <h2>{{ bedrijf.Name }} </h2>
-                        <p>{{ bedrijf.Description }}</p>
+                    <h1>{{companie.Name}}</h1>
+
+                    <h2>Facilities</h2>
+
+                        {% if facilities %}
+                            {%for facility in facilities%}
+                    <article id="soortenStages">
+                        <p>{{facility.Name}}</p>
+                        <p>{{facility.Street}}</p>
+                        <h3>Stages</h3>
+                    </article>
+                        {%endfor%}
+                        {%else%}
+                    <p>No facilities found</p>
+                        {%endif%}
                 </article>
 	</section>
-        
-        <h2><a href="{{ app.request.baseUrl }}/companies/{{bedrijf.idBedrijven}}/stages/">Stages</a></h2>
-        
-       <section class="stages">
-           
-		{% if stages %}
-                    {% for stage in stages %}
-			<article>
-                            <h1> <a href="{{ app.request.baseUrl }}/stages/{{ stage.idStages }}" title="{{ stage.Title }}">{{ stage.Title }}</a> </h1>	
-			</article>
-                    {% endfor %}
-		{% else %}
-                    <p>No stages to show!</p>
-		{% endif %}
-	</section>
-	<p><a href="{{ app.request.baseUrl }}/companies">&larr; Back to company overview</a></p>
+	
 {% endblock %}
