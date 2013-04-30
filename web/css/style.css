@@ -55,7 +55,7 @@ header nav ul{
 }
 header nav ul li{
     display: inline;
-    margin-right: 70px;
+    margin-left: 70px;
     font-size:18px;
 }
 
@@ -70,9 +70,8 @@ header nav ul li a:hover{
 
 #login {
     position: relative;
-    width: 200px;
     text-align: right;
-    left: 940px;
+    right: 0px;
     top: 20px;
 }
 
