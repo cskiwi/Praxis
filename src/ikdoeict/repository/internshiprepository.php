@@ -7,9 +7,13 @@ class InternshipRepository extends \Knp\Repository {
     public function getTableName() {
         return 'internship';
     }
+    
+    public function findAll(){
+        return $this->db->fetchAll('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID inner join facileties on internshiptemplate.Facileties_ID = facileties.ID inner join companies on facileties.CompaniesID = companies.idCompany;');   
+    }
 
     public function find($id) {
-        return $this->db->fetchAssoc('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID WHERE internship.idInternship = ?;', array($id));
+        return $this->db->fetchAssoc('select * from internship inner join internshiptemplate on internship.InternshipTemplate_ID = internshiptemplate.ID inner join facileties on internshiptemplate.Facileties_ID = facileties.ID inner join companies on facileties.CompaniesID = companies.idCompany WHERE internship.idInternship = ?;', array($id));
     }
 
     public function findStages($CompanyID) {
