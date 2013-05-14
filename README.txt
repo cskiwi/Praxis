@@ -1,7 +1,8 @@
 Link:
+http://laurenzdewinter.ikdoeict.be/web/
+
 
 Login gegevens:
-
 Bedrijf1: Lotus Bakeries
 	Login: lotus
 	Password: password
